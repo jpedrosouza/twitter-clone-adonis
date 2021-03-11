@@ -26,6 +26,6 @@ Route.on('/register').render('register')
 
 /* User Routes */
 Route.post('/create-user', 'UsersController.store')
-Route.get('/users', 'UsersController.showAll')
+Route.get('/users', 'UsersController.index')
 Route.get('/user/:id', 'UsersController.show')
 Route.get('/delete-user/:id', 'UsersController.destroy')

@@ -18,12 +18,6 @@ export default class UsersController {
     return user;
   }
 
-  public async showAll ({}: HttpContextContract) {
-    const user = await User.all();
-    
-    return user;
-  }
-
   public async show ({params}: HttpContextContract) {
     const user = await User.findOrFail(params.id);
 
