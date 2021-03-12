@@ -20,12 +20,21 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.on('/').render('home')
+/* Web Routes */
+Route.on('/').render('home').middleware('auth')
 Route.on('/login').render('login')
 Route.on('/register').render('register')
 
+/* Auth Routes */
+Route.post('/auth', 'AuthController.login')
+Route.post('/register', 'AuthController.store')
+
 /* User Routes */
-Route.post('/create-user', 'UsersController.store')
 Route.get('/users', 'UsersController.index')
 Route.get('/user/:id', 'UsersController.show')
 Route.get('/delete-user/:id', 'UsersController.destroy')
+
+/* Tweet Routes */
+Route.get('/tweets', 'TweetsController.index')
+Route.post('/tweet', 'TweetsController.store')
+Route.delete('/tweet:id', 'TweetsController.destroy')
